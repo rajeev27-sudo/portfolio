@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajeev | UX Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="initial-animation-overlay"></div>
+
+
+    <section id="hero" class="hero-section">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Hi, I'm Rajeev.</h1>
+                <h2>MCA | UI/UX Designer | Wireframes | Prototypes</h2><br><br>
+                <p>Bridging user needs with business goals through thoughtful design and research.</p>
+                <a href="#projects" class="btn primary-btn">View My Work</a>
+                <a href="#contact" class="btn secondary-btn">Get In Touch</a>
+            </div>
+            <img src="rajeev.png" alt="Rajeev - UX Designer" class="hero-profile-image">
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>As a passionate UX Designer, I thrive at the intersection of human behavior and digital innovation. My journey into UX began with a fascination for understanding why people interact with technology the way they do, stemming from my background in Master's in Computer Application and a Google UX Design Professional Certificate.</p>
+                
+                <p>I specialize in transforming complex problems into intuitive, user-friendly experiences. My core strengths lie in user research, information architecture, wireframing, prototyping, and rigorous usability testing. I'm dedicated to designing solutions that not only meet business objectives but genuinely delight users and simplify their lives.</p>
+                
+                <p>What truly excites me is the process of discovery and iteration. I believe the best designs emerge from a deep empathy for users, continuous learning, and collaborative feedback. I'm always eager to dive into new challenges, learn emerging design methodologies, and contribute to products that make a real difference.</p>
+                
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="imgg.jpg" alt="Project 1 Thumbnail">
+                    <h3>Wireframes</h3>
+                    <p>Wireframes serve as a blueprint that helps designers, developers, and other stakeholders understand the placement of elements like headers, buttons, navigation, and content blocks.</p>
+                    <a href="wireframe.html" class="btn project-btn">View </a>
+                </div>
+
+                <div class="project-card">
+                    <img src="prot.avif" alt="Project 2 Thumbnail">
+                    <h3>Prototypes</h3>
+                    <p>A prototype is a foundational concept in many fields, representing an early model or sample of a product, process, or idea. </p>
+                    <a href="prototype.html" class="btn project-btn">View </a>
+                </div>
+
+                <div class="project-card">
+                    <img src="project3_thumbnail.jpg" alt="Project 3 Thumbnail">
+                    <h3>[Project Title 3]</h3>
+                    <p>Description of your third project. What was the goal? What was your contribution? For example: "Developed a responsive website for a local non-profit, increasing online engagement and donations."</p>
+                    <a href="#" class="btn project-btn">View </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p>Have a project in mind or just want to chat about UX? Feel free to reach out!</p>
+            
+            <div class="contact-info">
+                <p>Email: <a href="mailto:rajeevrinesh2002@gmail.com">rajeevrinesh2002@gmail.com</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/rajeev-nair-111b632b4/" target="_blank">linkedin.com/in/rajeev-nair-111b632b4</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Rajeev – UX Designer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initial animation overlay
+        window.addEventListener('load', () => {
+            const overlay = document.querySelector('.initial-animation-overlay');
+            if (overlay) {
+                overlay.style.opacity = '0';
+                overlay.style.visibility = 'hidden';
+                setTimeout(() => {
+                    overlay.remove();
+                }, 1000); // Matches the CSS transition duration
+            }
+        });
+    </script>
+</body>
+</html>
