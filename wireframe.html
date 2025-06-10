@@ -11,6 +11,11 @@
 </head>
 <body>
     <div class="initial-animation-overlay"></div>
+    <!-- Lightbox Overlay -->
+    <div class="lightbox-overlay" id="lightbox">
+       <img src="" alt="Enlarged image">
+    </div>
+
 
     <header class="sub-page-header">
         <div class="container">
@@ -33,9 +38,9 @@
                     <h3>Digital Wireframes</h3>
                     <p>These wireframes illustrate the more refined stages of design, focusing on detailed layout, information hierarchy, and interactive elements created using professional tools.</p>
                     <div class="wireframe-gallery">
-                        <img src="digwire.jpg" alt="Digital Wireframe Example 1">
-                        <img src="digwire1.jpg" alt="Digital Wireframe Example 2">
-                        <img src="digwire2.jpg" alt="Digital Wireframe Example 3">
+                        <img src="digwire.jpg" alt="Digital Wireframe Example 1" class="clickable">
+                        <img src="digwire1.jpg" alt="Digital Wireframe Example 2" class="clickable">
+                        <img src="digwire2.jpg" alt="Digital Wireframe Example 3" class="clickable">
                         </div>
                     <div class="wireframe-context">
                         <h4>Project Context: [Project Name A]</h4>
@@ -47,9 +52,9 @@
                     <h3>Hand-Drawn Wireframes</h3>
                     <p>My hand-drawn wireframes represent the initial brainstorming and rapid ideation phases. They help in quickly visualizing concepts and flows before moving to digital tools.</p>
                     <div class="wireframe-gallery">
-                        <img src="wire1.jpg" alt="Hand-Drawn Wireframe Example 1">
-                        <img src="wire2.jpg" alt="Hand-Drawn Wireframe Example 2">
-                        <img src="images/hand_drawn_wireframe_3.jpg" alt="Hand-Drawn Wireframe Example 3">
+                        <img src="wire1.jpg" alt="Hand-Drawn Wireframe Example 1" class="clickable">
+                        <img src="wire2.jpg" alt="Hand-Drawn Wireframe Example 2" class="clickable">
+                        <img src="images/hand_drawn_wireframe_3.jpg" alt="Hand-Drawn Wireframe Example 3" class="clickable">
                         </div>
                     <div class="wireframe-context">
                         <h4>Project Context: [Project Name B]</h4>
@@ -111,6 +116,26 @@
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
         }
+
+        // Lightbox functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    const images = document.querySelectorAll('.clickable');
+
+    images.forEach(img => {
+        img.addEventListener('click', () => {
+            lightboxImg.src = img.src;
+            lightbox.classList.add('show');
+        });
+    });
+
+    lightbox.addEventListener('click', () => {
+        lightbox.classList.remove('show');
+        lightboxImg.src = '';
+    });
+});
+
 
         // Set the default active tab when the page loads
         document.addEventListener('DOMContentLoaded', (event) => {
