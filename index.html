@@ -18,11 +18,12 @@
             document.getElementById('message-modal').classList.add('hidden');
         }
 
-        // --- Initial Load & Animation Handler ---
+        // --- Initial Load & Animation Handler (Simplified using DOMContentLoaded) ---
         document.addEventListener('DOMContentLoaded', () => {
             const preloader = document.getElementById('preloader');
             const body = document.body;
 
+            // Wait for 500ms for a smooth fade-out effect
             setTimeout(() => {
                 // 1. Hide Preloader
                 preloader.classList.add('preloader-hidden');
@@ -35,7 +36,6 @@
                 document.querySelectorAll('.hero-text-item').forEach(item => {
                     item.classList.add('animate-in');
                 });
-
             }, 500); 
 
             // --- ScrollReveal for Smooth Scroll Animations ---
@@ -67,6 +67,7 @@
             });
         });
     </script>
+    
     <style>
         /* Custom CSS for Glassmorphism, subtle background glow, and animations */
         :root {
@@ -198,7 +199,8 @@
         .hero-image {
             transform: scale(0.8);
             opacity: 0;
-            transition: transform 1s ease-out 0.2s, opacity 1s ease-out 0.2s; /* Delay to start after preloader fade */
+            /* Delay to start after preloader fade */
+            transition: transform 1s ease-out 0.2s, opacity 1s ease-out 0.2s; 
         }
         
         .hero-image.animate-in {
@@ -269,31 +271,31 @@
     </div>
 
     <header class="sticky top-0 z-50 w-full backdrop-blur-xl bg-[#0d1117]/50 border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.2)] transition-all duration-500">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-center">
-        
-        <nav class="flex space-x-12 text-sm font-medium" aria-label="Main Navigation">
-            <a href="#hero" class="relative group text-gray-300 hover:text-white transition">
-                Home
-                <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-indigo-400 transition-all duration-300 group-hover:w-full"></span>
-            </a>
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-center">
+            
+            <nav class="flex space-x-12 text-sm font-medium" aria-label="Main Navigation">
+                <a href="#hero" class="relative group text-gray-300 hover:text-white transition">
+                    Home
+                    <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-indigo-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
 
-            <a href="#about" class="relative group text-gray-300 hover:text-white transition">
-                About
-                <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-indigo-400 transition-all duration-300 group-hover:w-full"></span>
-            </a>
+                <a href="#about" class="relative group text-gray-300 hover:text-white transition">
+                    About
+                    <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-indigo-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
 
-            <a href="#projects" class="relative group text-gray-300 hover:text-white transition">
-                Projects
-                <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-indigo-400 transition-all duration-300 group-hover:w-full"></span>
-            </a>
+                <a href="#projects" class="relative group text-gray-300 hover:text-white transition">
+                    Projects
+                    <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-indigo-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
 
-            <a href="#contact" class="relative group text-gray-300 hover:text-white transition">
-                Contact
-                <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-indigo-400 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-        </nav>
-    </div>
-</header>
+                <a href="#contact" class="relative group text-gray-300 hover:text-white transition">
+                    Contact
+                    <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-indigo-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </nav>
+        </div>
+    </header>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
@@ -320,7 +322,7 @@
 
                 <div class="flex justify-center md:order-2 order-1 hero-image">
                     <img 
-                        src=rajeev.png 
+                        src="rajeev.png" 
                         alt="Rajeev Professional Profile" 
                         class="w-69 h-69 object-cover"
                         onerror="this.onerror=null;this.src='https://placehold.co/250x250/1a202c/ffffff?text=Rajeev+Profile+Placeholder';"
@@ -333,15 +335,118 @@
             <h2 class="section-title text-4xl font-bold text-white mb-12">About Me</h2>
 
             <div class="grid md:grid-cols-3 gap-10">
-                <div class="md:col-span-2 text-gray-300 text-lg space-y-6">
-                    <p>
-                        I am a passionate <span class="text-indigo-400">UX Designer</span> with a strong foundation in MCA and certified through the Google UX Design Professional Certification. My expertise lies in transforming complex problems into smooth, user-friendly digital experiences through research-driven design processes.
-                    </p>
-                    <p>
-                        I focus intensely on <span class="text-indigo-400">wireframing, high-fidelity prototyping, usability testing, and information architecture</span>—bringing clarity and purpose to every interaction. My design approach combines creativity, empathy, and logical structure to craft interfaces that users not only understand but also enjoy using.
-                    </p>
+                <div class="md:col-span-2 text-gray-300 text-lg space-y-8">
+                    
+                    <div class="space-y-6">
+                        <p>
+                            I am a passionate <span class="text-indigo-400">UX Designer</span> with a strong foundation in MCA and certified through the **Google UX Design Professional Certification**. My expertise lies in transforming complex problems into smooth, user-friendly digital experiences through research-driven design processes.
+                        </p>
+                        <p>
+                            I focus intensely on <span class="text-indigo-400">wireframing, high-fidelity prototyping, usability testing, and information architecture</span>—bringing clarity and purpose to every interaction. My design approach combines creativity, empathy, and logical structure to craft interfaces that users not only understand but also enjoy using.
+                        </p>
+                    </div>
+                    
+                    <div class="glass-card p-6 rounded-xl mt-10">
+                        <h3 class="text-2xl font-semibold text-indigo-400 mb-6">Certifications 🏆</h3>
+                        
+                        <div class="space-y-6">
+                            
+                            <div>
+                                <div class="flex items-start mb-2">
+                                    <span class="text-yellow-400 mr-3 mt-1 text-lg">★</span>
+                                    <div>
+                                        <p class="font-medium text-white">Google UX Design Professional Certificate</p>
+                                        <p class="text-sm text-gray-400">Achieved via Coursera</p>
+                                    </div>
+                                </div>
+                                <a href="Google US Design.pdf" target="_blank" class="text-sm text-indigo-300 hover:text-indigo-100 transition duration-200 border-b border-indigo-300 ml-6">View Credential</a>
+                            </div>
+
+                            <div>
+                                <div class="flex items-start mb-2">
+                                    <span class="text-yellow-400 mr-3 mt-1 text-lg">★</span>
+                                    <div>
+                                        <p class="font-medium text-white">Foundations of User Experience (UX) Design Professional Certificate</p>
+                                        <p class="text-sm text-gray-400">Achieved via Coursera</p>
+                                    </div>
+                                </div>
+                                <a href="Foundations of User Experience (UX) Design.pdf" target="_blank" class="text-sm text-indigo-300 hover:text-indigo-100 transition duration-200 border-b border-indigo-300 ml-6">View Credential</a>
+                            </div>
+
+                            <div>
+                                <div class="flex items-start mb-2">
+                                    <span class="text-yellow-400 mr-3 mt-1 text-lg">★</span>
+                                    <div>
+                                        <p class="font-medium text-white">Build Dynamic User Interfaces Professional Certificate</p>
+                                        <p class="text-sm text-gray-400">Achieved via Coursera</p>
+                                    </div>
+                                </div>
+                                <a href="Build Dynamic User Interfaces.pdf" target="_blank" class="text-sm text-indigo-300 hover:text-indigo-100 transition duration-200 border-b border-indigo-300 ml-6">View Credential</a>
+                            </div>
+
+                            <div>
+                                <div class="flex items-start mb-2">
+                                    <span class="text-yellow-400 mr-3 mt-1 text-lg">★</span>
+                                    <div>
+                                        <p class="font-medium text-white">Build Wireframes and Low-Fidelity Prototypes Professional Certificate</p>
+                                        <p class="text-sm text-gray-400">Achieved via Coursera</p>
+                                    </div>
+                                </div>
+                                <a href="Build Wireframes and Low-Fidelity Prototypes.pdf" target="_blank" class="text-sm text-indigo-300 hover:text-indigo-100 transition duration-200 border-b border-indigo-300 ml-6">View Credential</a>
+                            </div>
+
+                            <div>
+                                <div class="flex items-start mb-2">
+                                    <span class="text-yellow-400 mr-3 mt-1 text-lg">★</span>
+                                    <div>
+                                        <p class="font-medium text-white">Create high fidelity Professional Certificate</p>
+                                        <p class="text-sm text-gray-400">Achieved via Coursera</p>
+                                    </div>
+                                </div>
+                                <a href="Create high fidelity.pdf" target="_blank" class="text-sm text-indigo-300 hover:text-indigo-100 transition duration-200 border-b border-indigo-300 ml-6">View Credential</a>
+                            </div>
+
+                            <div>
+                                <div class="flex items-start mb-2">
+                                    <span class="text-yellow-400 mr-3 mt-1 text-lg">★</span>
+                                    <div>
+                                        <p class="font-medium text-white">Conduct UX Research and Test Early Concepts Professional Certificate</p>
+                                        <p class="text-sm text-gray-400">Achieved via Coursera</p>
+                                    </div>
+                                </div>
+                                <a href="Conduct UX Research and Test Early Concepts.pdf" target="_blank" class="text-sm text-indigo-300 hover:text-indigo-100 transition duration-200 border-b border-indigo-300 ml-6">View Credential</a>
+                            </div>
+
+                            <div>
+                                <div class="flex items-start mb-2">
+                                    <span class="text-yellow-400 mr-3 mt-1 text-lg">★</span>
+                                    <div>
+                                        <p class="font-medium text-white">Start the UX Design Process Empathize, Define, Professional Certificate</p>
+                                        <p class="text-sm text-gray-400">Achieved via Coursera</p>
+                                    </div>
+                                </div>
+                                <a href="Start the UX Design Process Empathize, Define,.pdf" target="_blank" class="text-sm text-indigo-300 hover:text-indigo-100 transition duration-200 border-b border-indigo-300 ml-6">View Credential</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
+
+                <div class="md:col-span-1 space-y-8">
+                    
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="text-2xl font-semibold text-indigo-400 mb-4">Core Skills</h3>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2 ml-4">
+                            <li>User Research & Testing</li>
+                            <li>Information Architecture & Interaction Design (IxD)</li>
+                            <li>Wireframing & Prototyping (**Figma**)</li>
+                            <li>**Front-End Prototyping (HTML5/Tailwind CSS)**</li>
+                            <li>**Responsive Web Development**</li>
+                            <li>Design Systems & Usability Testing</li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
         </section>
 
         <section id="projects" class="py-24 section-hidden">
@@ -389,47 +494,49 @@
 
         <hr class="border-t border-gray-700/50 my-16">
 
-<section id="contact" class="contact-section text-center py-12">
-    <h2 class="section-title-sub text-4xl font-bold text-white mb-8 mx-auto">Get In Touch</h2>
-    <p class="text-xl text-gray-300 mb-10 max-w-xl mx-auto">Have a project in mind or just want to chat about UX? Feel free to reach out!</p>
-    
-    <div class="glass-card p-8 rounded-xl max-w-lg mx-auto divide-y divide-indigo-600/30">
-        
-        <div class="space-y-6 pt-2 pb-6">
+        <section id="contact" class="contact-section text-center py-12">
+            <h2 class="section-title-sub text-4xl font-bold text-white mb-8 mx-auto">Get In Touch</h2>
+            <p class="text-xl text-gray-300 mb-10 max-w-xl mx-auto">Have a project in mind or just want to chat about UX? Feel free to reach out!</p>
             
-            <div class="flex flex-col items-center">
-                <p class="text-xl font-semibold text-white mb-1">📧 Send an Email:</p>
-                <a href="mailto:rajeevrinesh2002@gmail.com" class="text-xl text-indigo-400 hover:text-indigo-300 transition-colors duration-200 font-medium break-words">
-                    rajeevrinesh2002@gmail.com
-                </a>
-            </div>
+            <div class="glass-card p-8 rounded-xl max-w-lg mx-auto divide-y divide-indigo-600/30">
+                
+                <div class="space-y-6 pt-2 pb-6">
+                    
+                    <div class="flex flex-col items-center">
+                        <p class="text-xl font-semibold text-white mb-1">📧 Send an Email:</p>
+                        <a href="mailto:rajeevrinesh2002@gmail.com" class="text-xl text-indigo-400 hover:text-indigo-300 transition-colors duration-200 font-medium break-words">
+                            rajeevrinesh2002@gmail.com
+                        </a>
+                    </div>
 
-            <div class="flex flex-col items-center pt-4">
-                <p class="text-xl font-semibold text-white mb-1">📱 Send a Text:</p>
-                <a href="tel:+917902335795" class="text-xl text-indigo-400 hover:text-indigo-300 transition-colors duration-200 font-medium">
-                    +91 79023 35795
-                </a>
-            </div>
-        </div>
+                    <div class="flex flex-col items-center pt-4">
+                        <p class="text-xl font-semibold text-white mb-1">📱 Send a Text:</p>
+                        <a href="tel:+917902335795" class="text-xl text-indigo-400 hover:text-indigo-300 transition-colors duration-200 font-medium">
+                            +91 79023 35795
+                        </a>
+                    </div>
+                </div>
 
-        <div class="space-y-4 pt-6">
-            <p class="text-xl font-semibold text-white mb-2">🔗 Connect Online:</p>
-            
-            <div class="flex items-center justify-center space-x-2">
-                <span class="text-indigo-400 text-2xl">🔗</span> <a href="https://www.linkedin.com/in/rajeev-nair-111b632b4/" target="_blank" class="text-lg text-gray-400 hover:text-indigo-400 transition-colors duration-200 truncate">
-                    LinkedIn Profile
-                </a>
+                <div class="space-y-4 pt-6">
+                    <p class="text-xl font-semibold text-white mb-2">🔗 Connect Online:</p>
+                    
+                    <div class="flex items-center justify-center space-x-2">
+                        <span class="text-indigo-400 text-2xl">🔗</span> 
+                        <a href="https://www.linkedin.com/in/rajeev-nair-111b632b4/" target="_blank" class="text-lg text-gray-400 hover:text-indigo-400 transition-colors duration-200 truncate">
+                            LinkedIn Profile
+                        </a>
+                    </div>
+                    
+                    <div class="flex items-center justify-center space-x-2">
+                        <span class="text-indigo-400 text-2xl">💾</span> 
+                        <a href="https://github.com/rajeev27-sudo/" target="_blank" class="text-lg text-gray-400 hover:text-indigo-400 transition-colors duration-200 truncate">
+                            GitHub Profile
+                        </a>
+                    </div>
+                </div>
+                
             </div>
-            
-            <div class="flex items-center justify-center space-x-2">
-                 <span class="text-indigo-400 text-2xl">💾</span> <a href="https://github.com/rajeev27-sudo/" target="_blank" class="text-lg text-gray-400 hover:text-indigo-400 transition-colors duration-200 truncate">
-                    GitHub Profile
-                </a>
-            </div>
-        </div>
-        
-    </div>
-</section>
+        </section>
 
     </main>
 
