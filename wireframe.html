@@ -4,29 +4,169 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rajeev | My Wireframes</title>
-    <link rel="stylesheet" href="styles.css"> 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        /* Custom CSS Variables from Index Page */
+        :root {
+            --primary-color: #4f46e5; /* Indigo 600 */
+            --secondary-color: #a78bfa; /* Violet 400 */
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117; /* GitHub Dark */
+            color: #e5e7eb;
+            min-height: 100vh;
+            line-height: 1.75;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* --- Custom Styles from Index Page --- */
+        
+        /* Glassmorphism Effect */
+        .glass-card {
+            background-color: rgba(17, 24, 39, 0.4); /* Darker blue transparent */
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(79, 70, 229, 0.2); /* Indigo border */
+            box-shadow: 0 8px 32px 0 rgba(10, 10, 10, 0.37);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-2px); /* Slightly reduced hover lift */
+            box-shadow: 0 8px 32px 0 rgba(79, 70, 229, 0.2); 
+        }
+
+        /* Sub Page Header Styling */
+        .sub-page-header {
+            background-color: #0d1117; 
+            border-bottom: 1px solid rgba(79, 70, 229, 0.5); /* Primary color accent */
+        }
+
+        /* Typography */
+        .section-title-sub {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title-sub::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50%;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 9999px;
+        }
+        
+        /* --- Tabs Styling --- */
+        .tabs-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #374151; /* Gray 700 */
+        }
+        
+        .tab-button {
+            padding: 0.75rem 1.5rem;
+            font-size: 1.125rem; /* text-xl */
+            font-weight: 600; /* font-semibold */
+            color: #9ca3af; /* Gray 400 */
+            border: none;
+            cursor: pointer;
+            background: transparent;
+            border-bottom: 2px solid transparent;
+            transition: color 0.3s, border-bottom 0.3s;
+        }
+
+        .tab-button:hover {
+            color: #fff;
+        }
+
+        .tab-button.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        /* Lightbox Styling */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: none; /* Controlled by JS and .show class */
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .lightbox-overlay.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-overlay img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 50px rgba(79, 70, 229, 0.8);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        
+        .lightbox-overlay.show img {
+            transform: scale(1);
+        }
+
+        /* Initial Load Animation Overlay (for consistency) */
+        .initial-animation-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0d1117;
+            z-index: 1000;
+            opacity: 1;
+            transition: opacity 0.5s ease-out, visibility 0s 0.5s;
+        }
+
+    </style>
 </head>
-<body>
+
+<body class="bg-[#0d1117]">
     <div class="initial-animation-overlay"></div>
-    <!-- Lightbox Overlay -->
+
     <div class="lightbox-overlay" id="lightbox">
        <img src="" alt="Enlarged image">
     </div>
 
 
-    <header class="sub-page-header">
-        <div class="container">
-            <a href="index.html" class="back-btn">&larr; Back to Portfolio</a>
-            <h1>My Wireframes</h1>
+    <header class="sub-page-header w-full py-6">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="text-indigo-400 hover:text-indigo-300 font-medium transition duration-200 flex items-center group">
+                <span class="mr-2 transform group-hover:-translate-x-1 transition">&larr;</span> Back to Portfolio
+            </a>
+            <h1 class="text-3xl font-bold text-white">Wireframe Case Study</h1>
         </div>
     </header>
 
-    <section id="wireframe-gallery-section" class="content-section">
-        <div class="container">
-            <p class="intro-text">Dive into my wireframing work, showcasing both digital and hand-drawn approaches to design ideation and structure.</p>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
+        <section id="wireframe-gallery-section" class="content-section">
+            <h2 class="section-title-sub text-4xl font-bold text-white mb-10">My Wireframes</h2>
+            <p class="text-xl text-gray-400 mb-12 max-w-3xl">Dive into my wireframing work, showcasing both digital and hand-drawn approaches to design ideation and structure.</p>
             
             <div class="tabs-container">
                 <div class="tabs-buttons">
@@ -34,53 +174,117 @@
                     <button class="tab-button" onclick="openWireframeTab(event, 'hand-drawn')">Hand-Drawn Wireframes</button>
                 </div>
 
-                <div id="digital" class="tab-content active">
-                    <h3>Digital Wireframes</h3>
-                    <p>These wireframes illustrate the more refined stages of design, focusing on detailed layout, information hierarchy, and interactive elements created using professional tools.</p>
-                    <h5><center> Click on the image below</center></h5>
-                    <div class="wireframe-gallery">
-                        <img src="digwire.jpg" alt="Digital Wireframe Example 1" class="clickable">
-                        <img src="digwire1.jpg" alt="Digital Wireframe Example 2" class="clickable">
-                        <img src="digwire2.jpg" alt="Digital Wireframe Example 3" class="clickable">
+                <div id="digital" class="tab-content active p-6 glass-card rounded-xl">
+                    <h3 class="text-3xl font-semibold text-white mb-4">Digital Wireframes: Low Fidelity</h3>
+                    <p class="text-gray-300 mb-6">These wireframes illustrate the more refined stages of design, focusing on detailed layout, information hierarchy, and interactive elements created using professional tools.</p>
+                    <h5 class="text-center text-indigo-400 mb-6 font-medium">Click on any image to enlarge</h5>
+                    
+                    <div class="wireframe-gallery grid md:grid-cols-3 gap-6">
+                        <div class="overflow-hidden rounded-lg border border-indigo-400/30 transition-transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-indigo-500/20 duration-300">
+                             <img src="digwire.jpg" alt="Digital Wireframe Example 1" class="clickable w-full h-auto cursor-pointer">
                         </div>
-                    <div class="wireframe-context">
-                        <h4>Project Context: [Project Name A]</h4>
-                        <p>These digital wireframes were part of a project to redesign a mobile banking application. The goal was to simplify the transfer process and improve account overview accessibility. I focused on intuitive navigation and clear visual hierarchy.</p>
+                        <div class="overflow-hidden rounded-lg border border-indigo-400/30 transition-transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-indigo-500/20 duration-300">
+                             <img src="digwire1.jpg" alt="Digital Wireframe Example 2" class="clickable w-full h-auto cursor-pointer">
+                        </div>
+                        <div class="overflow-hidden rounded-lg border border-indigo-400/30 transition-transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-indigo-500/20 duration-300">
+                             <img src="digwire2.jpg" alt="Digital Wireframe Example 3" class="clickable w-full h-auto cursor-pointer">
+                        </div>
+                        <div class="overflow-hidden rounded-lg border border-indigo-400/30 transition-transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-indigo-500/20 duration-300">
+                             <img src="s1.png" alt="Digital Wireframe Example 3" class="clickable w-full h-auto cursor-pointer">
+                        </div>
+                        <div class="overflow-hidden rounded-lg border border-indigo-400/30 transition-transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-indigo-500/20 duration-300">
+                             <img src="s2.png" alt="Digital Wireframe Example 3" class="clickable w-full h-auto cursor-pointer">
+                        </div>
+                        <div class="overflow-hidden rounded-lg border border-indigo-400/30 transition-transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-indigo-500/20 duration-300">
+                             <img src="s3.png" alt="Digital Wireframe Example 3" class="clickable w-full h-auto cursor-pointer">
+                        </div>
+                    </div>
+                    
+                    <div class="wireframe-context mt-8 p-6 bg-indigo-900/20 rounded-lg border border-indigo-500/50">
+                        <h4 class="text-2xl font-semibold text-indigo-300 mb-3">Project Context: Library Stores & Dog Walking App</h4>
+                        <p class="text-gray-300">These digital wireframes were part of a project to redesign on a library and dog walker's UI Design. The goal was to simplify the transfer process and improve account overview accessibility. I focused on intuitive navigation and clear visual hierarchy.</p>
                     </div>
                 </div>
 
-                <div id="hand-drawn" class="tab-content">
-                    <h3>Hand-Drawn Wireframes</h3>
-                    <p>My hand-drawn wireframes represent the initial brainstorming and rapid ideation phases. They help in quickly visualizing concepts and flows before moving to digital tools.</p>
-                    <h5><center> Click on the image below</center></h5>
-                    <div class="wireframe-gallery">
-                        <img src="wire1.jpg" alt="Hand-Drawn Wireframe Example 1" class="clickable">
-                        <img src="wire2.jpg" alt="Hand-Drawn Wireframe Example 2" class="clickable">
-                        <img src="images/hand_drawn_wireframe_3.jpg" alt="Hand-Drawn Wireframe Example 3" class="clickable">
+                <div id="hand-drawn" class="tab-content p-6 glass-card rounded-xl" style="display: none;"> 
+                    <h3 class="text-3xl font-semibold text-white mb-4">Hand-Drawn Wireframes: Rapid Ideation</h3>
+                    <p class="text-gray-300 mb-6">My hand-drawn wireframes represent the initial brainstorming and rapid ideation phases. They help in quickly visualizing concepts and flows before moving to digital tools.</p>
+                    <h5 class="text-center text-indigo-400 mb-6 font-medium">Click on any image to enlarge</h5>
+                    
+                    <div class="wireframe-gallery grid md:grid-cols-3 gap-6">
+                        <div class="overflow-hidden rounded-lg border border-indigo-400/30 transition-transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-indigo-500/20 duration-300">
+                             <img src="wire1.jpg" alt="Hand-Drawn Wireframe Example 1" class="clickable w-full h-auto cursor-pointer">
                         </div>
-                    <div class="wireframe-context">
-                        <h4>Project Context: [Project Name B]</h4>
-                        <p>These sketches were used during the early discovery phase for a new online learning platform. We explored various user flows for course enrollment and content consumption, prioritizing speed and flexibility in concept generation.</p>
+                        <div class="overflow-hidden rounded-lg border border-indigo-400/30 transition-transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-indigo-500/20 duration-300">
+                             <img src="wire2.jpg" alt="Hand-Drawn Wireframe Example 2" class="clickable w-full h-auto cursor-pointer">
+                        </div>
+                        <div class="overflow-hidden rounded-lg border border-indigo-400/30 transition-transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-indigo-500/20 duration-300">
+                             <img src="h1.jpg" alt="Hand-Drawn Wireframe Example 3" class="clickable w-full h-auto cursor-pointer">
+                        </div>
+                        <div class="overflow-hidden rounded-lg border border-indigo-400/30 transition-transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-indigo-500/20 duration-300">
+                             <img src="h2.jpg" alt="Hand-Drawn Wireframe Example 3" class="clickable w-full h-auto cursor-pointer">
+                        </div>
+                        <div class="overflow-hidden rounded-lg border border-indigo-400/30 transition-transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-indigo-500/20 duration-300">
+                             <img src="h3.jpg" alt="Hand-Drawn Wireframe Example 3" class="clickable w-full h-auto cursor-pointer">
+                        </div>
+                    </div>
+                    
+                    <div class="wireframe-context mt-8 p-6 bg-indigo-900/20 rounded-lg border border-indigo-500/50">
+                        <h4 class="text-2xl font-semibold text-indigo-300 mb-3"> Hand Drawn Wireframe</h4>
+                        <p class="text-gray-300">These sketches were used during the early discovery phase for a new online learning platform. I explored various user flows for course enrollment and content consumption, prioritizing speed and flexibility in concept generation.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <p>Have a project in mind or just want to chat about UX? Feel free to reach out!</p>
+        <hr class="border-t border-gray-700/50 my-16">
+
+<section id="contact" class="contact-section text-center py-12">
+    <h2 class="section-title-sub text-4xl font-bold text-white mb-8 mx-auto">Get In Touch</h2>
+    <p class="text-xl text-gray-300 mb-10 max-w-xl mx-auto">Have a project in mind or just want to chat about UX? Feel free to reach out!</p>
+    
+    <div class="glass-card p-8 rounded-xl max-w-lg mx-auto divide-y divide-indigo-600/30">
+        
+        <div class="space-y-6 pt-2 pb-6">
             
-            <div class="contact-info">
-                <p>Email: <a href="mailto:rajeevrinesh2002@gmail.com">rajeevrinesh2002@gmail.com</a></p>
-                <p>LinkedIn: <a href="https://www.linkedin.com/in/rajeev-nair-111b632b4/" target="_blank">linkedin.com/in/rajeev-nair-111b632b4</a></p>
+            <div class="flex flex-col items-center">
+                <p class="text-xl font-semibold text-white mb-1">📧 Send an Email:</p>
+                <a href="mailto:rajeevrinesh2002@gmail.com" class="text-xl text-indigo-400 hover:text-indigo-300 transition-colors duration-200 font-medium break-words">
+                    rajeevrinesh2002@gmail.com
+                </a>
+            </div>
+
+            <div class="flex flex-col items-center pt-4">
+                <p class="text-xl font-semibold text-white mb-1">📱 Send a Text:</p>
+                <a href="tel:+917902335795" class="text-xl text-indigo-400 hover:text-indigo-300 transition-colors duration-200 font-medium">
+                    +91 79023 35795
+                </a>
             </div>
         </div>
-    </section>
 
-    <footer>
-        <div class="container">
+        <div class="space-y-4 pt-6">
+            <p class="text-xl font-semibold text-white mb-2">🔗 Connect Online:</p>
+            
+            <div class="flex items-center justify-center space-x-2">
+                <span class="text-indigo-400 text-2xl">🔗</span> <a href="https://www.linkedin.com/in/rajeev-nair-111b632b4/" target="_blank" class="text-lg text-gray-400 hover:text-indigo-400 transition-colors duration-200 truncate">
+                    LinkedIn Profile
+                </a>
+            </div>
+            
+            <div class="flex items-center justify-center space-x-2">
+                 <span class="text-indigo-400 text-2xl">💾</span> <a href="https://github.com/rajeev27-sudo/" target="_blank" class="text-lg text-gray-400 hover:text-indigo-400 transition-colors duration-200 truncate">
+                    GitHub Profile
+                </a>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+    </main>
+
+    <footer class="mt-12 py-6 border-t border-gray-700/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-500">
             <p>&copy; 2025 Rajeev – UX Designer. All rights reserved.</p>
         </div>
     </footer>
@@ -94,11 +298,11 @@
                 overlay.style.visibility = 'hidden';
                 setTimeout(() => {
                     overlay.remove();
-                }, 1000); // Matches the CSS transition duration
+                }, 500); // Shorter duration for quicker sub-page entry
             }
         });
 
-        // JavaScript for Tabs
+        // JavaScript for Tabs (Kept original logic, but used modern display style)
         function openWireframeTab(evt, tabName) {
             let i, tabcontent, tabbuttons;
 
@@ -111,32 +315,32 @@
             // Get all elements with class="tab-button" and remove the "active" class
             tabbuttons = document.getElementsByClassName("tab-button");
             for (i = 0; i < tabbuttons.length; i++) {
-                tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
+                tabbuttons[i].classList.remove("active");
             }
 
             // Show the current tab, and add an "active" class to the button that opened the tab
             document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " active";
+            evt.currentTarget.classList.add("active");
         }
 
-        // Lightbox functionality
-document.addEventListener('DOMContentLoaded', () => {
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = lightbox.querySelector('img');
-    const images = document.querySelectorAll('.clickable');
+        // Lightbox functionality (Kept original logic)
+        document.addEventListener('DOMContentLoaded', () => {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = lightbox.querySelector('img');
+            const images = document.querySelectorAll('.clickable');
 
-    images.forEach(img => {
-        img.addEventListener('click', () => {
-            lightboxImg.src = img.src;
-            lightbox.classList.add('show');
+            images.forEach(img => {
+                img.addEventListener('click', () => {
+                    lightboxImg.src = img.src;
+                    lightbox.classList.add('show');
+                });
+            });
+
+            lightbox.addEventListener('click', () => {
+                lightbox.classList.remove('show');
+                lightboxImg.src = '';
+            });
         });
-    });
-
-    lightbox.addEventListener('click', () => {
-        lightbox.classList.remove('show');
-        lightboxImg.src = '';
-    });
-});
 
 
         // Set the default active tab when the page loads

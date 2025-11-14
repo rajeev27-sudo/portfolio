@@ -1,14 +1,16 @@
-/* General Styling & NEW Color Palette */
+/* ===========================
+   Global & Color Palette
+=========================== */
 :root {
-    --primary-color: #6A0DAD; /* A rich, deep purple */
-    --secondary-color: #9370DB; /* Medium Purple - lighter accent */
-    --text-color-dark: #2C2C2C; /* Very dark gray for body text */
-    --text-color-light: #FFFFFF; /* White for light text */
-    --background-light: #F7F0FF; /* NEW: Softer, more distinct light purple for main background */
-    --background-dark: #ECE0F5; /* NEW: Slightly deeper lavender for alternating sections */
-    --card-background: #FCF9FF; /* NEW: Very subtle purple-tinted white for cards */
-    --border-color: #D3BDE6; /* NEW: Light purple border */
-    --shadow-light: rgba(0, 0, 0, 0.1); /* Lighter shadow for a cleaner look */
+    --primary-color: #6A0DAD;
+    --secondary-color: #9370DB;
+    --text-color-dark: #2C2C2C;
+    --text-color-light: #FFFFFF;
+    --background-light: #F7F0FF;
+    --background-dark: #ECE0F5;
+    --card-background: #FCF9FF;
+    --border-color: #D3BDE6;
+    --shadow-light: rgba(0, 0, 0, 0.1);
     --transition-speed: 0.3s;
 }
 
@@ -80,38 +82,36 @@ h2::after {
 h3 {
     font-size: 1.8em;
     font-weight: 600;
-    color: var(--primary-color);
 }
 
 p {
     margin-bottom: 20px;
     font-size: 1.1em;
-    color: var(--text-color-dark);
 }
 
 a {
     color: var(--primary-color);
     text-decoration: none;
-    transition: color var(--transition-speed) ease;
+    transition: color var(--transition-speed);
 }
 
 a:hover {
     color: var(--secondary-color);
 }
 
-/* Buttons */
+/* ===========================
+          Buttons
+=========================== */
 .btn {
     display: inline-block;
     padding: 12px 25px;
     border-radius: 5px;
     font-weight: 600;
-    transition: all var(--transition-speed) ease;
-    cursor: pointer;
-    text-align: center;
-    font-size: 1em;
-    margin: 10px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    margin: 10px;
+    font-size: 1em;
 }
 
 .primary-btn {
@@ -124,7 +124,7 @@ a:hover {
     background-color: var(--secondary-color);
     border-color: var(--secondary-color);
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+    box-shadow: 0 5px 15px var(--shadow-light);
 }
 
 .secondary-btn {
@@ -137,7 +137,7 @@ a:hover {
     background-color: var(--primary-color);
     color: var(--text-color-light);
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+    box-shadow: 0 5px 15px var(--shadow-light);
 }
 
 .project-btn {
@@ -152,18 +152,17 @@ a:hover {
     background-color: var(--secondary-color);
 }
 
-/* Initial Animation Overlay */
+/* ===========================
+   Intro Animation Overlay
+=========================== */
 .initial-animation-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background-color: var(--primary-color);
     z-index: 9999;
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.8s ease-out, visibility 0.8s ease-out; /* Reduced duration */
+    transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -172,9 +171,11 @@ a:hover {
     font-weight: 700;
 }
 
-/* Header */
+/* ===========================
+            Header
+=========================== */
 header {
-    background-color: var(--background-light); /* Header background */
+    background-color: var(--background-light);
     padding: 20px 0;
     border-bottom: 1px solid var(--border-color);
     position: sticky;
@@ -193,7 +194,6 @@ header .container {
     font-size: 1.8em;
     font-weight: 700;
     color: var(--primary-color);
-    margin: 0;
 }
 
 header nav a {
@@ -207,7 +207,9 @@ header nav a:hover {
     color: var(--primary-color);
 }
 
-/* Hero Section */
+/* ===========================
+        Hero Section
+=========================== */
 .hero-section {
     background: linear-gradient(135deg, var(--background-light), var(--background-dark));
     padding: 100px 0;
@@ -230,77 +232,48 @@ header nav a:hover {
 .hero-text h1 {
     font-size: 3.8em;
     line-height: 1.2;
-    color: var(--primary-color);
-    margin-bottom: 15px;
 }
 
 .hero-text h2 {
     font-size: 1.8em;
     color: var(--secondary-color);
-    margin-bottom: 10px;
     font-weight: 400;
 }
 
 .hero-text p {
     font-size: 1.2em;
-    color: var(--text-color-dark);
-    margin-bottom: 30px;
 }
 
-/* Styling for the rectangular profile image - NO BOX/SHADOW/RADIUS */
 .hero-profile-image {
     max-width: 350px;
     width: 100%;
-    height: auto;
-    display: block;
-    /* REMOVED: box-shadow */
-    /* REMOVED: border-radius */
-
-    /* Animation properties - REDUCED TIMING */
-    animation: imagePopUp 0.5s ease-out forwards; /* Faster animation duration */
-    animation-delay: 0.3s; /* Reduced delay */
-    opacity: 0; /* Hidden initially */
+    animation: imagePopUp 0.5s ease-out forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
 }
 
-/* Keyframes for Image Pop-Up - Adjusted for speed */
 @keyframes imagePopUp {
-    0% {
-        opacity: 0;
-        transform: translateY(20px) scale(0.9); /* Smaller initial scale, less translation */
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+    0% { opacity: 0; transform: translateY(20px) scale(0.9); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* About Section */
-.about-section {
-    background-color: var(--background-light);
-}
-
+/* ===========================
+        About Section
+=========================== */
 .about-content {
     max-width: 800px;
     margin: 0 auto;
-    text-align: center;
     font-size: 1.1em;
     line-height: 1.8;
-}
-
-.about-content p {
-    margin-bottom: 25px;
-    color: var(--text-color-dark);
 }
 
 .about-content p strong {
     color: var(--primary-color);
 }
 
-/* Projects Section */
-.projects-section {
-    background-color: var(--background-dark);
-}
-
+/* ===========================
+       Projects Section
+=========================== */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -309,175 +282,74 @@ header nav a:hover {
 }
 
 .project-card {
-    background-color: var(--card-background); /* NEW: Card background is now light purple */
+    background-color: var(--card-background);
     border-radius: 10px;
-    box-shadow: 0 4px 15px var(--shadow-light); /* Lighter shadow */
     padding: 30px;
-    text-align: left;
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 .project-card:hover {
-    transform: translateY(-8px); /* Slightly less lift */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Lighter shadow on hover */
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .project-card img {
-    max-width: 100%;
+    width: 100%;
     height: 200px;
     object-fit: cover;
     border-radius: 6px;
+    border: 1px solid var(--border-color);
     margin-bottom: 20px;
-    border: 1px solid var(--border-color); /* NEW: Border color */
-}
-
-.project-card h3 {
-    font-size: 1.5em;
-    margin-top: 0;
-    margin-bottom: 10px;
-    color: var(--primary-color);
 }
 
 .project-card p {
     font-size: 0.95em;
-    color: var(--text-color-dark); /* Changed to dark text color for consistency */
-    margin-bottom: 20px;
     flex-grow: 1;
 }
 
-/* Contact Section */
-.contact-section {
-    background-color: var(--background-light);
-    padding-bottom: 50px;
-}
-
+/* ===========================
+       Contact Section
+=========================== */
 .contact-section p {
     max-width: 600px;
-    margin: 0 auto 30px auto;
-    font-size: 1.1em;
-    color: var(--text-color-dark);
+    margin: 0 auto 30px;
 }
 
-.contact-info {
-    margin-top: 40px;
-    font-size: 1.1em;
-}
-
-.contact-info p {
-    margin-bottom: 10px;
-    color: var(--text-color-dark);
-}
-
-/* Footer */
+/* ===========================
+            Footer
+=========================== */
 footer {
     background-color: #333;
-    color: white;
+    color: #fff;
     padding: 25px 0;
     text-align: center;
-    font-size: 0.9em;
-}
-
-footer a {
-    color: white;
 }
 
 footer a:hover {
     text-decoration: underline;
-    color: white;
 }
 
-/* Responsive Design */
+/* ===========================
+      Responsive Design
+=========================== */
 @media (max-width: 992px) {
-    .hero-content {
-        flex-direction: column-reverse;
-        text-align: center;
-    }
-
-    .hero-profile-image {
-        margin-bottom: 40px;
-        max-width: 280px;
-    }
-
-    .hero-text h1 {
-        font-size: 3em;
-    }
-
-    .hero-text h2 {
-        font-size: 1.5em;
-    }
-
-    h1 {
-        font-size: 2.8em;
-    }
-
-    h2 {
-        font-size: 2em;
-    }
-
-    header .container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    header nav {
-        margin-top: 15px;
-    }
-
-    header nav a {
-        margin: 0 15px;
-        display: inline-block;
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
+    .hero-content { flex-direction: column-reverse; text-align: center; }
+    .hero-profile-image { max-width: 280px; margin-bottom: 40px; }
+    header .container { flex-direction: column; }
+    header nav { margin-top: 15px; }
 }
 
 @media (max-width: 768px) {
-    section {
-        padding: 60px 0;
-    }
-
-    .hero-section {
-        padding: 80px 0;
-    }
-
-    .hero-text h1 {
-        font-size: 2.5em;
-    }
-
-    .hero-text p {
-        font-size: 1em;
-    }
-
-    .btn {
-        padding: 10px 20px;
-        font-size: 0.9em;
-    }
-
-    .initial-animation-overlay {
-        font-size: 2.5em;
-    }
+    section { padding: 60px 0; }
+    .hero-section { padding: 80px 0; }
+    .btn { padding: 10px 20px; font-size: 0.9em; }
 }
 
 @media (max-width: 480px) {
-    h1 {
-        font-size: 2.2em;
-    }
-
-    h2 {
-        font-size: 1.8em;
-    }
-
-    .hero-profile-image {
-        max-width: 220px;
-    }
-
-    header nav a {
-        margin: 0 10px;
-        font-size: 1em;
-    }
+    h1 { font-size: 2.2em; }
+    h2 { font-size: 1.8em; }
+    .hero-profile-image { max-width: 220px; }
 }
